@@ -2,14 +2,14 @@
 
 > **All content in this repository belongs to [Anthropic](https://www.anthropic.com/).** This is an unofficial extraction for **educational and research purposes only**.
 >
-> This repo started from [sanbuphy/claude-code-source-code](https://github.com/sanbuphy/claude-code-source-code), a decompiled partial source dump. A more authoritative local reference is now available at `/home/simone/claude-code-complete`, which is a full monorepo clone with executable source, internal `packages/@ant/*`, and the prompt builders used by the real app.
+> This repo started from [sanbuphy/claude-code-source-code](https://github.com/sanbuphy/claude-code-source-code), a decompiled partial source dump. A more authoritative local reference is a local checkout of `claude-code-complete` (for example `../claude-code-complete`), which is a full monorepo clone with executable source, internal `packages/@ant/*`, and the prompt builders used by the real app.
 
 An organized collection of all prompts, templates, instruction blocks and message builders extracted from the Claude Code source code — Anthropic's official CLI for Claude.
 
 ## Status
 
 - The markdown files in this repo are a curated extraction snapshot, not a canonical mirror of the full source tree.
-- When `/home/simone/claude-code-complete` is available, use that repo as the primary source of truth.
+- When a local `claude-code-complete` checkout is available, use that repo as the primary source of truth.
 - See `SOURCE_MAP.md` for the current mapping from these markdown files to the monorepo source files.
 - Use `scripts/inventory-complete-prompts.sh` to inventory prompt-related source files in the full repo.
 - The current extraction now includes a first pass of additional unique tool prompts from the complete monorepo; stub files and nested/internal prompt variants are still intentionally excluded.
@@ -88,7 +88,7 @@ safety/                        → Safety instructions (2 files)
 
 - **Copyright:** All prompts, instructions, and text content are the intellectual property of **Anthropic, PBC**.
 - **Initial source:** Extracted from the decompiled source published at [sanbuphy/claude-code-source-code](https://github.com/sanbuphy/claude-code-source-code).
-- **Preferred source:** When available, use `/home/simone/claude-code-complete` as the canonical local reference instead of the decompiled dump.
+- **Preferred source:** When available, use a local `claude-code-complete` checkout as the canonical reference instead of the decompiled dump.
 - **Purpose:** This repository exists solely for **educational purposes** — to study and understand how production AI agent systems are architected.
 - **No affiliation:** This project is not affiliated with, endorsed by, or sponsored by Anthropic.
 - **License:** The original code is subject to Anthropic's license terms. Refer to the original source for licensing details.

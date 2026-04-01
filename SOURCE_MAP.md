@@ -2,7 +2,7 @@
 
 This repository is a markdown extraction layer. The preferred local source of truth is:
 
-- `/home/simone/claude-code-complete`
+- a local checkout of `claude-code-complete` (for example `../claude-code-complete`)
 
 The mapping below points each extracted markdown file to the canonical file in the complete monorepo. Some extracted markdown files are assembled from multiple functions or constants rather than a single raw string.
 

@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SOURCE_REPO="${1:-${SOURCE_REPO:-/home/simone/claude-code-complete}}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DEFAULT_SOURCE_REPO="$(cd "$SCRIPT_DIR/../.." && pwd)/claude-code-complete"
+SOURCE_REPO="${1:-${SOURCE_REPO:-$DEFAULT_SOURCE_REPO}}"
 
 if [[ ! -d "$SOURCE_REPO" ]]; then
   echo "error: source repo not found: $SOURCE_REPO" >&2
   echo "usage: scripts/inventory-complete-prompts.sh [/path/to/claude-code-complete]" >&2
+  echo "or set SOURCE_REPO=/path/to/claude-code-complete" >&2
   exit 1
 fi
 
