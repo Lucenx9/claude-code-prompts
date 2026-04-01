@@ -7,12 +7,55 @@ An organized collection of all prompts, templates, instruction blocks and messag
 ## Structure
 
 ```
-system/          → System prompt (identity, rules, tasks, style, environment)
-tools/           → Per-tool prompts (Bash, Read, Edit, Write, Grep, Glob, Agent, ...)
-agents/          → Built-in agent prompts (explorer, planner, verifier, coordinator, ...)
-memory/          → Persistent memory system (types, extraction, session memory)
-services/        → Background service prompts (compact, magic-docs, prompt-suggestion)
-safety/          → Safety instructions (cyber-risk, undercover mode)
+system/                        → System prompt chain (8 files)
+  01-identity.md                  Identity prefixes
+  02-intro.md                     Intro + cyber risk
+  03-system-rules.md              System behavior rules
+  04-doing-tasks.md               Task execution guidelines
+  05-actions-care.md              Reversibility / blast radius
+  06-using-tools.md               Tool preference steering
+  07-tone-and-style.md            Output style + efficiency
+  08-environment.md               Env info + knowledge cutoffs
+
+tools/                         → Per-tool prompts (16 files)
+  bash.md                         Bash + git commit/PR + sandbox
+  file-read.md                    Read
+  file-edit.md                    Edit
+  file-write.md                   Write
+  glob.md                         Glob
+  grep.md                         Grep
+  agent.md                        Agent tool + fork mode
+  web-fetch.md                    WebFetch
+  web-search.md                   WebSearch
+  ask-user-question.md            AskUserQuestion
+  enter-plan-mode.md              EnterPlanMode
+  sleep.md                        Sleep
+  todo-write.md                   TodoWrite
+  tool-search.md                  ToolSearch
+  skill.md                        Skill invocation
+  send-message.md                 SendMessage
+  notebook-edit.md                NotebookEdit
+
+agents/                        → Built-in agent prompts (6 files)
+  general-purpose.md              General-purpose agent
+  explorer.md                     Explore (read-only, fast)
+  planner.md                      Plan (read-only, architect)
+  verifier.md                     Verification (adversarial)
+  guide.md                        Claude Code Guide
+  coordinator.md                  Coordinator mode (multi-worker)
+
+memory/                        → Persistent memory system (3 files)
+  memory-types.md                 Four-type taxonomy
+  memory-extraction.md            Background extraction prompt
+  session-memory.md               Session notes template + update prompt
+
+services/                      → Background service prompts (2 files)
+  compact.md                      Context compaction (no-tools)
+  magic-docs.md                   Auto-documentation
+
+safety/                        → Safety instructions (2 files)
+  cyber-risk.md                   Security boundaries
+  undercover.md                   Attribution stripping
 ```
 
 ## Disclaimer
@@ -23,6 +66,7 @@ safety/          → Safety instructions (cyber-risk, undercover mode)
 - **No affiliation:** This project is not affiliated with, endorsed by, or sponsored by Anthropic.
 - **License:** The original code is subject to Anthropic's license terms. Refer to the original source for licensing details.
 
-## WIP
+## Stats
 
-Extraction in progress. Remaining: tool prompts, built-in agents, memory system, services, safety.
+- **37 files** across 6 categories
+- Covers the full system prompt assembly chain, all major tool descriptions, 5 built-in agents + coordinator mode, the complete memory type taxonomy, and background service prompts
