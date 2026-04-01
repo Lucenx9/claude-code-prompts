@@ -1,8 +1,18 @@
 # Claude Code Prompts — Extracted & Organized
 
-> **All content in this repository belongs to [Anthropic](https://www.anthropic.com/).** This is an unofficial extraction for **educational and research purposes only**. Source: [sanbuphy/claude-code-source-code](https://github.com/sanbuphy/claude-code-source-code) — decompiled source of Claude Code v2.1.88.
+> **All content in this repository belongs to [Anthropic](https://www.anthropic.com/).** This is an unofficial extraction for **educational and research purposes only**.
+>
+> This repo started from [sanbuphy/claude-code-source-code](https://github.com/sanbuphy/claude-code-source-code), a decompiled partial source dump. A more authoritative local reference is now available at `/home/simone/claude-code-complete`, which is a full monorepo clone with executable source, internal `packages/@ant/*`, and the prompt builders used by the real app.
 
 An organized collection of all prompts, templates, instruction blocks and message builders extracted from the Claude Code source code — Anthropic's official CLI for Claude.
+
+## Status
+
+- The markdown files in this repo are a curated extraction snapshot, not a canonical mirror of the full source tree.
+- When `/home/simone/claude-code-complete` is available, use that repo as the primary source of truth.
+- See `SOURCE_MAP.md` for the current mapping from these markdown files to the monorepo source files.
+- Use `scripts/inventory-complete-prompts.sh` to inventory prompt-related source files in the full repo.
+- The current extraction now includes a first pass of additional unique tool prompts from the complete monorepo; stub files and nested/internal prompt variants are still intentionally excluded.
 
 ## Structure
 
@@ -17,13 +27,29 @@ system/                        → System prompt chain (8 files)
   07-tone-and-style.md            Output style + efficiency
   08-environment.md               Env info + knowledge cutoffs
 
-tools/                         → Per-tool prompts (16 files)
+tools/                         → Per-tool prompts (33 files)
+  brief.md                        SendUserMessage / Brief
+  config.md                       Configuration settings
   bash.md                         Bash + git commit/PR + sandbox
+  enter-worktree.md               Start isolated worktree session
+  exit-worktree.md                Exit worktree session
   file-read.md                    Read
   file-edit.md                    Edit
   file-write.md                   Write
   glob.md                         Glob
   grep.md                         Grep
+  list-mcp-resources.md           List MCP resources
+  lsp.md                          Language Server Protocol
+  powershell.md                   PowerShell shell tool
+  read-mcp-resource.md            Read one MCP resource
+  remote-trigger.md               Remote scheduled agents API
+  task-create.md                  Create task list items
+  task-get.md                     Get task details
+  task-list.md                    List task items
+  task-stop.md                    Stop background tasks
+  task-update.md                  Update task items
+  team-create.md                  Create swarm/team context
+  team-delete.md                  Delete swarm/team context
   agent.md                        Agent tool + fork mode
   web-fetch.md                    WebFetch
   web-search.md                   WebSearch
@@ -61,12 +87,14 @@ safety/                        → Safety instructions (2 files)
 ## Disclaimer
 
 - **Copyright:** All prompts, instructions, and text content are the intellectual property of **Anthropic, PBC**.
-- **Source:** Extracted from the decompiled source published at [sanbuphy/claude-code-source-code](https://github.com/sanbuphy/claude-code-source-code).
+- **Initial source:** Extracted from the decompiled source published at [sanbuphy/claude-code-source-code](https://github.com/sanbuphy/claude-code-source-code).
+- **Preferred source:** When available, use `/home/simone/claude-code-complete` as the canonical local reference instead of the decompiled dump.
 - **Purpose:** This repository exists solely for **educational purposes** — to study and understand how production AI agent systems are architected.
 - **No affiliation:** This project is not affiliated with, endorsed by, or sponsored by Anthropic.
 - **License:** The original code is subject to Anthropic's license terms. Refer to the original source for licensing details.
 
 ## Stats
 
-- **37 files** across 6 categories
-- Covers the full system prompt assembly chain, all major tool descriptions, 5 built-in agents + coordinator mode, the complete memory type taxonomy, and background service prompts
+- **54 files** across 6 categories
+- Covers the full system prompt assembly chain, 33 tool prompts, 5 built-in agents + coordinator mode, the complete memory type taxonomy, and background service prompts
+- The full monorepo currently contains at least **70** `prompt.(ts|txt)` files plus **5** `prompts.ts` builders, so coverage here should be treated as partial until regenerated from the complete repo
